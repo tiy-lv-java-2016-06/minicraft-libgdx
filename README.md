@@ -4,7 +4,7 @@
 
 ## Description
 
-Create a libGDX project called `Minicraft`. Then download [minicraft-assets.zip](https://github.com/oakes/java-assignments/raw/master/curriculum/assets/minicraft-assets.zip) and put its contents in `core/assets`. Write the necessary code to make the player walk around. Use the following code to load the four player tiles in the `create` method:
+Clone the github repo and create a libGDX project called `Minicraft` in the same directory. Then unzip the assets file (included in the repo) and put its contents in `core/assets`. Write the necessary code to make the player walk around. Use the following code to load the four player tiles in the `create` method:
 
 ```java
 Texture tiles = new Texture("tiles.png");
