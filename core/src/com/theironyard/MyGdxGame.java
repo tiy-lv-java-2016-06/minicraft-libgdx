@@ -11,12 +11,17 @@ public class MyGdxGame extends ApplicationAdapter {
     private TextureRegion down, up, right, left;
 	private SpriteBatch batch;
 	private Texture img;
-    String look = "";
+    int look = 0;
     private float time;
 
+    public static final int UP = 1;
+    public static final int DOWN = 2;
+    public static final int LEFT = 3;
+    public static final int RIGHT = 4;
 
 
-	private float x, y, xv, yv = 0;
+
+    private float x, y, xv, yv = 0;
 	public static final float MAX_VELOCITY = 100;
 
 	@Override
@@ -43,13 +48,13 @@ public class MyGdxGame extends ApplicationAdapter {
 		batch.begin();
         batch.draw(img, x, y);
 
-        if (look == "r"){
+        if (look == RIGHT){
             batch.draw(right, x, y);
-        }else if (look == "l"){
+        }else if (look == LEFT){
             batch.draw(left, x, y);
-        }else if (look == "u"){
+        }else if (look == UP){
             batch.draw(up, x, y);
-        }else if (look == "d"){
+        }else if (look == DOWN){
             batch.draw(down, x, y);
         }
         batch.end();
@@ -71,29 +76,29 @@ public class MyGdxGame extends ApplicationAdapter {
 
 	public void move(){
 
-		if(Gdx.input.isKeyPressed(Input.Keys.UP)) {
+        if(Gdx.input.isKeyPressed(Input.Keys.UP)) {
             yv = MAX_VELOCITY;
-            look = "u";
+            look = UP;
             if (Gdx.input.isKeyPressed(Input.Keys.SPACE)){
                 yv *= 3;
             }
 		}
         if (Gdx.input.isKeyPressed(Input.Keys.DOWN)){
             yv = MAX_VELOCITY * -1;
-            look = "d";
+            look = DOWN;
             if (Gdx.input.isKeyPressed(Input.Keys.SPACE)){
                 yv = MAX_VELOCITY * -3;
             }
         }
 		if(Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
-            look = "r";
+            look = RIGHT;
 			xv = MAX_VELOCITY;
             if (Gdx.input.isKeyPressed(Input.Keys.SPACE)){
                 xv = MAX_VELOCITY * 3;
             }
 		}
 		if(Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
-            look = "l";
+            look = LEFT;
 			xv = MAX_VELOCITY * -1;
             if (Gdx.input.isKeyPressed(Input.Keys.SPACE)){
                 xv = MAX_VELOCITY * -3;
